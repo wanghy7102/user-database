@@ -14,3 +14,8 @@ export const getAlbumUrl = (albumId) => `${domain}/albums/${albumId}`;
 
 export const getAlbumPhotosUrl = (albumId) =>
   `${domain}/albums/${albumId}/photos`;
+
+export const getPostUrl = (postId) => `${domain}/posts/${postId}`;
+
+export const getPostCommentsUrl = (postId) =>
+  `${domain}/posts/${postId}/comments`;

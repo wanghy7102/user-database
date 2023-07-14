@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getUserPostsUrl } from "./URL";
 import {
   Box,
+  Button,
   Card,
+  CardActions,
   CardContent,
   Container,
   Grid,
@@ -14,6 +16,7 @@ import User from "./User";
 const UserPosts = () => {
   const { userId } = useParams();
   const [userPosts, setUserPosts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const url = getUserPostsUrl(userId);
@@ -44,6 +47,16 @@ const UserPosts = () => {
                     {userPost.body}
                   </Typography>
                 </CardContent>
+                <CardActions>
+                  <Button
+                    size="small"
+                    onClick={(e) =>
+                      navigate(`/user-database/posts/${userPost.id}/comments`)
+                    }
+                  >
+                    Comments
+                  </Button>
+                </CardActions>
               </Card>
             </Grid>
           ))}

@@ -8,6 +8,7 @@ import UserPosts from "./UserPosts";
 import UserAlbums from "./UserAlbums";
 import UserTodos from "./UserTodos";
 import AlbumPhotos from "./AlbumPhotos";
+import PostComments from "./PostComments";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="users/:userId/albums" element={<UserAlbums />} />
           <Route path="users/:userId/todos" element={<UserTodos />} />
           <Route path="albums/:albumId/photos" element={<AlbumPhotos />} />
+          <Route path="posts/:postId/comments" element={<PostComments />} />
         </Route>
       </Routes>
     </BrowserRouter>
