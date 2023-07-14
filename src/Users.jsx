@@ -59,7 +59,14 @@ const Users = () => {
                 >
                   Albums
                 </Button>
-                <Button size="small">Todos</Button>
+                <Button
+                  size="small"
+                  onClick={(e) =>
+                    navigate(`/user-database/users/${user.id}/todos`)
+                  }
+                >
+                  Todos
+                </Button>
               </CardActions>
             </Card>
           </Grid>

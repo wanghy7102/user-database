@@ -6,6 +6,7 @@ import Layout from "./Layout";
 import Users from "./Users";
 import UserPosts from "./UserPosts";
 import UserAlbums from "./UserAlbums";
+import UserTodos from "./UserTodos";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="users" element={<Users />} />
           <Route path="users/:userId/posts" element={<UserPosts />} />
           <Route path="users/:userId/albums" element={<UserAlbums />} />
+          <Route path="users/:userId/todos" element={<UserTodos />} />
         </Route>
       </Routes>
     </BrowserRouter>
