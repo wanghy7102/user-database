@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
 import Users from "./Users";
 import UserPosts from "./UserPosts";
+import UserAlbums from "./UserAlbums";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route index element={<Users />} />
           <Route path="users" element={<Users />} />
           <Route path="users/:userId/posts" element={<UserPosts />} />
+          <Route path="users/:userId/albums" element={<UserAlbums />} />
         </Route>
       </Routes>
     </BrowserRouter>

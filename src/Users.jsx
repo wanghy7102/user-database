@@ -51,7 +51,14 @@ const Users = () => {
                 >
                   Posts
                 </Button>
-                <Button size="small">Albums</Button>
+                <Button
+                  size="small"
+                  onClick={(e) =>
+                    navigate(`/user-database/users/${user.id}/albums`)
+                  }
+                >
+                  Albums
+                </Button>
                 <Button size="small">Todos</Button>
               </CardActions>
             </Card>
