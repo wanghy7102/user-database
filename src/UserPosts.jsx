@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { getUsersUrl } from "./URL";
+import { useParams } from "react-router-dom";
+import { getUserPostsUrl } from "./URL";
 import {
   Button,
   Card,
@@ -11,22 +11,22 @@ import {
   Typography,
 } from "@mui/material";
 
-const Users = () => {
-  const [users, setUsers] = useState([]);
-  const navigate = useNavigate();
+const UserPosts = () => {
+  const { userId } = useParams();
+  const [userPosts, setUserPosts] = useState([]);
 
   useEffect(() => {
-    const url = getUsersUrl();
+    const url = getUserPostsUrl(userId);
     fetch(url)
       .then((response) => response.json())
-      .then((json) => setUsers(json));
+      .then((json) => setUserPosts(json));
   }, []);
 
   return (
     <Container sx={{ py: 8 }} maxWidth="md">
       <Grid container spacing={4}>
-        {users.map((user) => (
-          <Grid item key={user.id} xs={12} sm={6} md={4}>
+        {userPosts.map((userPost) => (
+          <Grid item key={userPost.id} xs={12} sm={6} md={4}>
             <Card
               sx={{
                 height: "100%",
@@ -36,24 +36,12 @@ const Users = () => {
             >
               <CardContent sx={{ flexGrow: 1 }}>
                 <Typography gutterBottom variant="h5" component="h2">
-                  {user.name}
+                  {userPost.title}
                 </Typography>
                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                  {user.email}
+                  {userPost.body}
                 </Typography>
               </CardContent>
-              <CardActions>
-                <Button
-                  size="small"
-                  onClick={(e) =>
-                    navigate(`/user-database/users/${user.id}/posts`)
-                  }
-                >
-                  Posts
-                </Button>
-                <Button size="small">Albums</Button>
-                <Button size="small">Todos</Button>
-              </CardActions>
             </Card>
           </Grid>
         ))}
@@ -62,4 +50,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default UserPosts;
