@@ -9,6 +9,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import { Check } from "@mui/icons-material";
 import User from "./User";
 
 const UserTodos = () => {
@@ -36,8 +37,16 @@ const UserTodos = () => {
                   flexDirection: "column",
                 }}
               >
-                <CardContent sx={{ flexGrow: 1 }}>
+                <CardContent
+                  sx={{ flexGrow: 1 }}
+                  style={{
+                    backgroundColor: userTodo.completed
+                      ? "lightgreen"
+                      : "inherit",
+                  }}
+                >
                   <Typography gutterBottom variant="h5" component="h2">
+                    {userTodo.completed && <Check color="green" />}
                     {userTodo.title}
                   </Typography>
                 </CardContent>
