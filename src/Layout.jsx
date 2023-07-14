@@ -23,7 +23,9 @@ const Layout = () => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <main>{Outlet}</main>
+      <main>
+        <Outlet />
+      </main>
     </ThemeProvider>
   );
 };
