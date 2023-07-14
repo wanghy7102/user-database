@@ -40,8 +40,10 @@ const PostComments = () => {
                   <Typography gutterBottom variant="h5" component="h2">
                     {postComment.name}
                   </Typography>
-                  <Typography>{postComment.email}</Typography>
-                  <Typography>{postComment.body}</Typography>
+                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    {postComment.email}
+                  </Typography>
+                  <Typography variant="body2">{postComment.body}</Typography>
                 </CardContent>
               </Card>
             </Grid>
