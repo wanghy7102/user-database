@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
-import { Camera } from "@mui/icons-material";
+import { People } from "@mui/icons-material";
 import {
   createTheme,
   ThemeProvider,
   CssBaseline,
   AppBar,
   Toolbar,
-  Typography,
+  Link,
 } from "@mui/material";
 
 const defaultTheme = createTheme();
@@ -17,10 +17,16 @@ const Layout = () => {
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
-          <Camera sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
+          <People sx={{ mr: 2 }} />
+          <Link
+            variant="h6"
+            color="inherit"
+            noWrap
+            href="/user-database/"
+            underline="none"
+          >
             User Database
-          </Typography>
+          </Link>
         </Toolbar>
       </AppBar>
       <main>
