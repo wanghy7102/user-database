@@ -9,3 +9,8 @@ export const getUserPostsUrl = (userId) => `${domain}/users/${userId}/posts`;
 export const getUserAlbumsUrl = (userId) => `${domain}/users/${userId}/albums`;
 
 export const getUserTodosUrl = (userId) => `${domain}/users/${userId}/todos`;
+
+export const getAlbumUrl = (albumId) => `${domain}/albums/${albumId}`;
+
+export const getAlbumPhotosUrl = (albumId) =>
+  `${domain}/albums/${albumId}/photos`;

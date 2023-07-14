@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getUserAlbumsUrl } from "./URL";
 import {
   Box,
+  Button,
   Card,
+  CardActions,
   CardContent,
   Container,
   Grid,
@@ -14,6 +16,7 @@ import User from "./User";
 const UserAlbums = () => {
   const { userId } = useParams();
   const [userAlbums, setUserAlbums] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const url = getUserAlbumsUrl(userId);
@@ -41,6 +44,16 @@ const UserAlbums = () => {
                     {userAlbum.title}
                   </Typography>
                 </CardContent>
+                <CardActions>
+                  <Button
+                    size="small"
+                    onClick={(e) =>
+                      navigate(`/user-database/albums/${userAlbum.id}/photos`)
+                    }
+                  >
+                    Photos
+                  </Button>
+                </CardActions>
               </Card>
             </Grid>
           ))}
